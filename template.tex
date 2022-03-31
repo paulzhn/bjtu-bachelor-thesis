@@ -48,7 +48,7 @@
 
 \setcounter{page}{1}
 % \ctitlepage
-
+\pagestyle{myfancy}
 \cabspage
 % \myfanpage
 \eabspage
@@ -230,11 +230,12 @@ $\phi$ —— 特征渗透性或固有渗透性，与材料的结构性质有关
 %========================================================================%
 
 
-\markboth{参考文献}{}
-\nocite{*}
-\bibliography{MyDissBib}
-\pagestyle{myfancy}
+% \bibliography{MyDissBib}
 
+\newpage
+\pagestyle{myfancy}
+\nocite{*}
+\printbibliography[heading=myheading]
 \addcontentsline{toc}{part}{参考文献}
 \cleardoublepage
 %========================================================================%

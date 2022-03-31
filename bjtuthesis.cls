@@ -33,13 +33,13 @@
 \RequirePackage{titletoc}
 \RequirePackage{fontspec}
 \RequirePackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
-\RequirePackage{gbt7714}
+% \RequirePackage{gbt7714}
 \RequirePackage{calc}
 \RequirePackage{datetime}
 \RequirePackage{etoolbox}
 \RequirePackage{booktabs}
 \RequirePackage{floatrow}
-
+\RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
 % \RequirePackage[fontsize=11pt]{fontsize}f
 
 % \RequirePackage{xeCJK}
@@ -181,11 +181,33 @@
 %========================================================================%
 % 参考文献格式
 %========================================================================%
+\addbibresource[]{MyDissBib.bib}
 
-\bibliographystyle{gbt7714-numerical}
-\let\oldcitep\citep
-\newcommand{\citen}[2][]{\textsuperscript{\oldcitep{#2}#1}}
-\renewcommand{\citep}{\citen}
+\defbibheading{myheading}[参考文献]{%
+  \centering\chapter*{#1}
+  \markboth{参考文献}{}}
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{2pt}%
+      \setlength{\itemindent}{2em}%
+      \setlength{\itemsep}{0pt}%
+      \setlength{\parsep}{\bibparsep}
+	  }}
+  {\endlist}
+  {\item
+  \zihao{5} \mysongti
+   \printtext[labelnumberwidth]{%
+     \printfield{labelprefix}%
+      \printfield{labelnumber}}%
+   \addspace}
+
+
+
+% \bibliographystyle{gbt7714-numerical}
+% \let\oldcitep\citep
+% \newcommand{\citen}[2][]{\textsuperscript{\oldcitep{#2}#1}}
+% \renewcommand{\citep}{\citen}
 %========================================================================%
 % 前置部分命令
 %========================================================================%
@@ -239,18 +261,16 @@
 	\newpage
 }
 
-\renewcommand{\bibsection}{
-	\newpage
-	\thispagestyle{myfancy}
-	\vspace*{0cm}
-	\begin{center}
-		{\zihao{-2}\heiti 参考文献\bigskip}
-	\end{center}
-}
-\setlength{\bibsep}{0pt plus 0.3ex}
-\renewcommand*{\bibfont}{\zihao{5}}
-
-
+% \renewcommand{\bibsection}{
+% 	\newpage
+% 	\thispagestyle{myfancy}
+% 	\vspace*{0cm}
+% 	\begin{center}
+% 		{\zihao{-2}\heiti 参考文献\bigskip}
+% 	\end{center}
+% }
+% \setlength{\bibsep}{0pt plus 0.3ex}
+% \renewcommand*{\bibfont}{\zihao{5}}
 
 
 \newcommand{\ccopyright}{
@@ -342,11 +362,12 @@
 }
 \newcommand{\cabspage}{
 	\thispagestyle{myfancy}
+	\chapter*{\makebox[\linewidth]{\zihao{-2}中文摘要}}
 	\markboth{中文摘要}{}
-	\addcontentsline{toc}{part}{中文摘要}
-	\begin{thecenter}
-	中文摘要
-	\end{thecenter}
+	\addcontentsline{toc}{chapter}{中文摘要}
+	% \begin{thecenter}
+	% 中文摘要
+	% \end{thecenter}
 
 	\noindent\mysongti{\textbf{摘要：}}\cabstract \par
 
@@ -357,11 +378,13 @@
 }
 \newcommand{\eabspage}{
 	\thispagestyle{myfancy}
+	\chapter*{\makebox[\linewidth]{\zihao{-2}ABSTRACT}}
+	% \thispagestyle{myfancy}
 	\markboth{英文摘要}{}
-	\addcontentsline{toc}{part}{ABSTRACT}
-	\begin{thecenter}
-	ABSTRACT
-	\end{thecenter}
+	\addcontentsline{toc}{chapter}{ABSTRACT}
+	% \begin{thecenter}
+	% ABSTRACT
+	% \end{thecenter}
 
 	\noindent\mysongti{\textbf{ABSTRACT:}} \par
 	\noindent\eabstract \par
@@ -375,7 +398,7 @@
 \newcommand{\cprepage}{
 	\thispagestyle{myfancy}
 	\markboth{序言}{}
-	\addcontentsline{toc}{part}{序言}
+	\addcontentsline{toc}{chapter}{序言}
 	\begin{thecenter}
 	序言
 	\end{thecenter}

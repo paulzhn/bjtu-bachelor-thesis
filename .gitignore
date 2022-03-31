@@ -1,3 +1,4 @@
 *.xdv
 *.pdf
-
+*.bcf
+*.xml
