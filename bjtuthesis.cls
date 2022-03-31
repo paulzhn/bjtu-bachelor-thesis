@@ -11,12 +11,12 @@
 %========================================================================%
 \ProvidesClass{bjtuthesis}[2016/09/10]
 \def\version{1.0}
-\LoadClass[a4paper,cs4size,twoside,hyperref,openright]{ctexbook}
+\LoadClass[a4paper,zihao=-4,twoside,hyperref,openright]{ctexbook}
 \NeedsTeXFormat{LaTeX2e}
 %========================================================================%
 % 基本宏包
 %========================================================================%
-\RequirePackage{ccaption}
+\RequirePackage{caption}
 \RequirePackage{mathptmx}
 \RequirePackage{changepage}
 \RequirePackage{amsmath}
@@ -37,7 +37,10 @@
 \RequirePackage{calc}
 \RequirePackage{datetime}
 \RequirePackage{etoolbox}
+\RequirePackage{booktabs}
+\RequirePackage{floatrow}
 
+% \RequirePackage[fontsize=11pt]{fontsize}f
 
 % \RequirePackage{xeCJK}
 
@@ -48,27 +51,38 @@
 \newcommand{\hwzs}{\CJKfamily{hwzs}}
 \setCJKfamilyfont{mysong}{simsun.ttc}[AutoFakeBold=2.5]
 \newcommand*{\mysongti}{\CJKfamily{mysong}}
-\setCJKfamilyfont{myhei}{simhei.ttf}[AutoFakeBold=2.5]
+
+\setCJKfamilyfont{myhei}{simhei.ttf}[AutoFakeBold=2]
 \newcommand*{\myheiti}{\CJKfamily{myhei}}
 \newcommand*{\yearmonth}{\songti \zihao{-3} \the \year 年 \the \month 月}
 
 
-\geometry{left=2.5cm,right=2.5cm,top=3.0cm,bottom=2.5cm,headheight=1.5cm,footskip=1.75cm}
+\geometry{left=2.5cm,right=2.5cm,top=3.0cm,bottom=2.5cm,headheight=1.5cm,footskip=0.6cm}
 \setmainfont{Times New Roman}
+\linespread{1.4}\selectfont
 \setlength{\baselineskip}{20pt}
+
+\renewcommand{\arraystretch}{1.2}
+
 \renewcommand{\captionfont}{\zihao{5}}
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
-\setlength{\abovecaptionskip}{0pt}
-\setlength{\belowcaptionskip}{0pt}
+\DeclareCaptionFont{mysongti}{\zihao{5}\mysongti}
+\captionsetup{font=mysongti}
+
+\DeclareFloatFont{mysongti}{\zihao{5}\mysongti}
+\floatsetup[table]{font=mysongti,capposition=top,captionskip=2pt}
+
+\setlength{\abovecaptionskip}{8pt}
+\setlength{\belowcaptionskip}{12pt}
 \CTEXsetup[name={,}]{chapter}
 \CTEXsetup[number={\arabic{chapter}}]{chapter}
-\CTEXsetup[beforeskip={24pt}]{chapter}
+\CTEXsetup[beforeskip={-4pt}]{chapter}
 \CTEXsetup[afterskip={18pt}]{chapter}
 \CTEXsetup[nameformat={}]{chapter}
 \CTEXsetup[titleformat={}]{chapter}
-\CTEXsetup[format=\centering\heiti\zihao{3}]{chapter}
+\CTEXsetup[format=\heiti\zihao{3}]{chapter}
 \CTEXsetup[format=\raggedright\heiti\zihao{-3}]{section}
 \CTEXsetup[beforeskip={24pt}]{section}
 \CTEXsetup[afterskip={18pt}]{section}
@@ -76,7 +90,7 @@
 \CTEXsetup[beforeskip={24pt}]{subsection}
 \CTEXsetup[afterskip={18pt}]{subsection}
 %========================================================================%
-\newcommand{\figcaption}[2]{\bicaption{图}{#1}{Fig}{#2}}
+\newcommand{\figcaption}[1]{\caption{图}{#1}}
 %========================================================================%
 % 目录格式
 %========================================================================%
@@ -108,7 +122,11 @@
 
 	% Redefining headrule
 	\makeatletter
-	\renewcommand{\headrule}{\hrule height 1.5pt \vspace{2pt}\hrule height 0.5pt}
+	\renewcommand{\headrule}{\hrule height 2.5pt \vspace{1pt}\hrule height 1pt}
+}
+
+\fancypagestyle{myfancymain}{
+	\fancyhead[R]{\zihao{4}\hwzs 正文}
 }
 
 
@@ -154,12 +172,16 @@
 \newcommand{\major}[1]{\renewcommand{\major}{#1}}
 \newcommand{\field}[1]{\renewcommand{\field}{#1}}
 \newcommand{\cthanks}[1]{\renewcommand{\cthanks}{#1}}
+
 \newcommand{\cabstract}[1]{\renewcommand{\cabstract}{#1}}
+\newcommand{\ckeywords}[1]{\renewcommand{\ckeywords}{#1}}
 \newcommand{\eabstract}[1]{\renewcommand{\eabstract}{#1}}
+\newcommand{\ekeywords}[1]{\renewcommand{\ekeywords}{#1}}
 \newcommand{\cprelude}[1]{\renewcommand{\cprelude}{#1}}
 %========================================================================%
 % 参考文献格式
 %========================================================================%
+
 \bibliographystyle{gbt7714-numerical}
 \let\oldcitep\citep
 \newcommand{\citen}[2][]{\textsuperscript{\oldcitep{#2}#1}}
@@ -174,7 +196,7 @@
 \patchcmd{\chapter}{plain}{myfancy}{}{}
 \makeatother
 \newenvironment{thecenter}
-	{\begin{center}\vspace{24pt}\zihao{3}\heiti}
+	{\begin{center}\vspace{24pt}\zihao{-2}\heiti}
 	{\vspace{18pt}\end{center}}
 \newcommand{\cover}{
 	\thispagestyle{myclear}
@@ -216,6 +238,21 @@
 	
 	\newpage
 }
+
+\renewcommand{\bibsection}{
+	\newpage
+	\thispagestyle{myfancy}
+	\vspace*{0cm}
+	\begin{center}
+		{\zihao{-2}\heiti 参考文献\bigskip}
+	\end{center}
+}
+\setlength{\bibsep}{0pt plus 0.3ex}
+\renewcommand*{\bibfont}{\zihao{5}}
+
+
+
+
 \newcommand{\ccopyright}{
 	\thispagestyle{myclear}
 	\vspace{2cm}
@@ -308,10 +345,14 @@
 	\markboth{中文摘要}{}
 	\addcontentsline{toc}{part}{中文摘要}
 	\begin{thecenter}
-	摘要
+	中文摘要
 	\end{thecenter}
 
-	\cabstract
+	\noindent\mysongti{\textbf{摘要：}}\cabstract \par
+
+	\vspace{2cm}
+	
+	\noindent \mysongti {\textbf{关键词：}\ckeywords}
 	\newpage
 }
 \newcommand{\eabspage}{
@@ -322,7 +363,13 @@
 	ABSTRACT
 	\end{thecenter}
 
-	\eabstract
+	\noindent\mysongti{\textbf{ABSTRACT:}} \par
+	\noindent\eabstract \par
+
+	\vspace{2cm}
+	
+	\noindent \mysongti {\textbf{KEYWORDS:\;}\ekeywords} 
+
 	\newpage
 }
 \newcommand{\cprepage}{
