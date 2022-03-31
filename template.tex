@@ -13,13 +13,15 @@
 %========================================================================%
 % 自定义内容
 %========================================================================%
-\ctitle{中文题目}
-\etitle{English Title}
-\cauthor{作者}
-\ctutor{导师}
+\ctitle{基于边云融合的边缘云服务网格系统\\控制面子系统的设计与实现}
+\etitle{The Design and Implementation of Intelligent Court Monitoring System Based on Video Recognition}
+\cauthor{张璞}
+\ctutor{刘海明}
+\cschool{软件学院}
+\cmajor{软件工程}
 \category{工学}
 \major{土木工程}
-\cid{14121023}
+\cid{18301120}
 \jobtitle{教授}
 \degree{硕士}
 \field{桥梁工程}
@@ -37,27 +39,28 @@
 \begin{document}
 \pagenumbering{roman}
 \cover
-\myclpage
+
 \ccopyright
-\myclpage
+
 \setcounter{page}{1}
-\ctitlepage
-\myclpage
-\thankspage
-\myclpage
+% \ctitlepage
+
 \cabspage
-\myfanpage
+% \myfanpage
 \eabspage
-\myfanpage
-\cprepage
-\myfanpage
+% \myfanpage
+% \cprepage
+% \myfanpage
 \pagestyle{myfancy}
+\thispagestyle{myfancy}
 \tableofcontents
 %========================================================================%
 % 主体部份
 %========================================================================%
+% \markboth
 \chapter{绪论}
-\markboth{绪论}{}
+\thispagestyle{myfancy}
+% \markboth{绪论}{}
 \pagenumbering{arabic}
 \setcounter{page}{1}
 我是绪论。我是绪论。我是绪论。我是绪论。我是绪论。我是绪论。我是绪论。我是绪论。
@@ -67,33 +70,33 @@
 单张普通插图，及其引用，如图\ref{fig:G1}所示。
 
 \begin{figure}[!htp]
-\centering
-\includegraphics[width=0.8\textwidth]{pic/G1.png}
-\figcaption{G1数据对比\label{fig:G1}}{Comparison of experimental data}
+    \centering
+    \includegraphics[width=0.8\textwidth]{pic/G1.png}
+    \figcaption{G1数据对比\label{fig:G1}}{Comparison of experimental data}
 \end{figure}
 
 \subsection{多张图片}
 多张图片联排或者换行可以使用各种排版方式（minipage、subplot等），如下图\ref{fig:2}所示。
 \begin{figure}
-\centering
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=0.9\textwidth]{pic/G1.png}\\
-{\zihao{5}(a) G1试件}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=0.9\textwidth]{pic/G1.png}\\
-{\zihao{5}(b) G1试件}
-\end{minipage}
-\figcaption{G1数据对比\label{fig:2}}{Comparison of experimental data}
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{pic/G1.png}\\
+        {\zihao{5}(a) G1试件}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{pic/G1.png}\\
+        {\zihao{5}(b) G1试件}
+    \end{minipage}
+    \figcaption{G1数据对比\label{fig:2}}{Comparison of experimental data}
 \end{figure}
 \section{公式测试}
 公式的排版和引用与正常\LaTeX\ 公式格式一致。例如：
 
 \begin{equation}
-\label{eqn:1}
-e^{i\pi}+1=0
+    \label{eqn:1}
+    e^{i\pi}+1=0
 \end{equation}
 
 欧拉公式(式\ref{eqn:1})，它是数学里最令人着迷的一个公式，它将数学里最重要的几个数学联系到了一起——两个超数：自然对数的底$e$，圆周率$\pi$；两个单位：虚数单位$i$和自然数的单位$1$，以及数学里常见的$0$。数学家们评价它是“上帝创造的公式”，我们只能看它而不能理解它。
@@ -104,14 +107,14 @@ e^{i\pi}+1=0
 下面分类测试各种类型参考文献：
 
 \begin{itemize}
-\item 中文规范\citep{C1}。
-\item 英文规范\citep{ACI318}
-\item 中文学位论文\citep{liguiqian}
-\item 英文学位论文\citep{bentz2000}
-\item 期刊\citep{FMK}
-\item 图书类\citep{B1}
-\item 其他\citep{R1}
-\item 多文献引用，压缩格式\citep{C1,ACI318,liguiqian,R1}
+    \item 中文规范\citep{C1}。
+    \item 英文规范\citep{ACI318}
+    \item 中文学位论文\citep{liguiqian}
+    \item 英文学位论文\citep{bentz2000}
+    \item 期刊\citep{FMK}
+    \item 图书类\citep{B1}
+    \item 其他\citep{R1}
+    \item 多文献引用，压缩格式\citep{C1,ACI318,liguiqian,R1}
 \end{itemize}
 
 \chapter{结论}
@@ -121,17 +124,17 @@ e^{i\pi}+1=0
 %========================================================================%
 \bibliography{MyDissBib}
 \addcontentsline{toc}{part}{参考文献}
-\cleardoublepage 
+\cleardoublepage
 %========================================================================%
 % 附录
 %========================================================================%
 \markboth{附录A}{}
 \addcontentsline{toc}{part}{附录A}
 \begin{center}
-{\zihao{3}\heiti 附录A}
+    {\zihao{3}\heiti 附录A}
 \end{center}
 \begin{center}
-{\zihao{3}\heiti 附录标题}
+    {\zihao{3}\heiti 附录标题}
 \end{center}
 
 \indent\zihao{5}附录是作为论文主体的补充项目，并不是必须的。
@@ -143,7 +146,7 @@ e^{i\pi}+1=0
 \markboth{索引}{}
 \addcontentsline{toc}{part}{索引}
 \begin{center}
-{\zihao{3}\heiti 索引}
+    {\zihao{3}\heiti 索引}
 \end{center}
 
 \indent\zihao{5}按照需要编排分类索引、著者索引、关键词索引等。
@@ -154,7 +157,7 @@ e^{i\pi}+1=0
 \markboth{作者简历及攻读硕士学位期间取得的研究成果}{}
 \addcontentsline{toc}{part}{作者简历及攻读硕士学位期间取得的研究成果}
 \begin{thecenter}
-作者简历及攻读硕士学位期间取得的研究成果
+    作者简历及攻读硕士学位期间取得的研究成果
 \end{thecenter}
 
 \zihao{5}包括教育经历、工作经历、攻读学位期间发表的论文和完成的工作等。行距16磅，段前后各为0磅。

@@ -31,13 +31,28 @@
 \RequirePackage{multicol}
 \RequirePackage{setspace}
 \RequirePackage{titletoc}
-% \RequirePackage{fontspec}
+\RequirePackage{fontspec}
 \RequirePackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
 \RequirePackage{gbt7714}
+\RequirePackage{calc}
+\RequirePackage{datetime}
+\RequirePackage{etoolbox}
+
+
+% \RequirePackage{xeCJK}
 
 %========================================================================%
 % 北京交大明确给出的格式
 %========================================================================%
+\setCJKfamilyfont{hwzs}{STZHONGS.TTF}
+\newcommand{\hwzs}{\CJKfamily{hwzs}}
+\setCJKfamilyfont{mysong}{simsun.ttc}[AutoFakeBold=2.5]
+\newcommand*{\mysongti}{\CJKfamily{mysong}}
+\setCJKfamilyfont{myhei}{simhei.ttf}[AutoFakeBold=2.5]
+\newcommand*{\myheiti}{\CJKfamily{myhei}}
+\newcommand*{\yearmonth}{\songti \zihao{-3} \the \year 年 \the \month 月}
+
+
 \geometry{left=2.5cm,right=2.5cm,top=3.0cm,bottom=2.5cm,headheight=1.5cm,footskip=1.75cm}
 \setmainfont{Times New Roman}
 \setlength{\baselineskip}{20pt}
@@ -75,11 +90,34 @@
 %========================================================================%
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \fancypagestyle{myfancy}{
-\fancyhead{}
-\fancyhead[CE]{\zihao{5}北京交通大学硕士学位论文}
-\fancyhead[CO]{\zihao{5}\leftmark}
-\fancyfoot[CO,CE]{\zihao{-5}\thepage}
+	% Header Settings
+	% \fancyhead[LE,RO]{\thepage}
+	% \fancyhead[RE]{\nouppercase{\leftmark}}
+	% \fancyhead[LO]{\nouppercase{\rightmark}}
+	
+
+	% Footer Settings
+	% \fancyfoot[CE,CO]{\thepage}
+	% \fancyfoot[LE,RO]{}
+	% \fancyfoot[RE,LO]{}
+	% \fancyhead{}
+	\fancyhead[CE,CO]{}
+	\fancyhead[L]{\zihao{4}\hwzs 北京交通大学毕业设计（论文）}
+	\fancyhead[R]{\zihao{4}\hwzs \leftmark}
+	\fancyfoot[CO,CE]{\zihao{-5}\thepage}
+
+	% Redefining headrule
+	\makeatletter
+	\renewcommand{\headrule}{\hrule height 1.5pt \vspace{2pt}\hrule height 0.5pt}
 }
+
+
+% \fancypagestyle{myfancy}{
+% \fancyhead{}
+% \fancyhead[CL]{\zihao{5}北京交通大学毕业设计（论文）}
+% \fancyhead[CR]{\zihao{5}\leftmark}
+% \fancyfoot[CO,CE]{\zihao{-5}\thepage}
+% }
 \fancypagestyle{myempty}{
 \fancyhead{}
 \renewcommand{\headrulewidth}{0pt}
@@ -105,9 +143,11 @@
 \newcommand{\ctitle}[1]{\renewcommand{\ctitle}{#1}}
 \newcommand{\etitle}[1]{\renewcommand{\etitle}{#1}}
 \newcommand{\cdata}[1]{\renewcommand{\cdata}{#1}}
-\newcommand{\cauthor}[1]{\renewcommand{\cauthor}{#1}}
-\newcommand{\cid}[1]{\renewcommand{\cid}{#1}}
-\newcommand{\ctutor}[1]{\renewcommand{\ctutor}{#1}}
+\newcommand{\cauthor}[1]{\renewcommand{\cauthor}{\songti\zihao{3}#1}}
+\newcommand{\cschool}[1]{\renewcommand{\cschool}{\songti\zihao{3}#1}}
+\newcommand{\cmajor}[1]{\renewcommand{\cmajor}{\songti\zihao{3}#1}}
+\newcommand{\cid}[1]{\renewcommand{\cid}{\zihao{3}#1}}
+\newcommand{\ctutor}[1]{\renewcommand{\ctutor}{\songti\zihao{3}#1}}
 \newcommand{\jobtitle}[1]{\renewcommand{\jobtitle}{#1}}
 \newcommand{\category}[1]{\renewcommand{\category}{#1}}
 \newcommand{\degree}[1]{\renewcommand{\degree}{#1}}
@@ -127,41 +167,66 @@
 %========================================================================%
 % 前置部分命令
 %========================================================================%
+\let\cleardoublepage=\clearpage
+\makeatletter
+\let\ps@plain\ps@fancy
+% \usepackage{etoolbox}
+\patchcmd{\chapter}{plain}{myfancy}{}{}
+\makeatother
 \newenvironment{thecenter}
 	{\begin{center}\vspace{24pt}\zihao{3}\heiti}
 	{\vspace{18pt}\end{center}}
 \newcommand{\cover}{
 	\thispagestyle{myclear}
-	\vspace{22mm}
+	\vspace*{0.6cm}
 	\begin{center}
 	\includegraphics[width=107mm]{pic/logo.png}
 
-	{\vspace{4ex}\zihao{2}\ziju{0.5}\songti 本科毕业设计（论文）\vspace{2cm}}
-
-	{\zihao{-3}\ctitle\vspace{1cm}}
-
-	{\zihao{-3}\etitle\vspace{3.8cm}}
-
-	{\zihao{4}作者：\cauthor\vspace{1cm}}
-
-	{\zihao{4}导师：\ctutor}
+	{\vspace{1.25cm}\zihao{2}\mysongti \textbf{本科毕业设计（论文）}}
 	\vfill
-	{\zihao{4}北京交通大学\vspace{1cm}}
 
-	\cdata
+	\begin{spacing}{2}
+	{\zihao{-2}\myheiti\textbf{\ctitle}\vspace{1cm}}
+	\end{spacing}
+	\begin{spacing}{2}
+	{\zihao{-2}\mysongti\textbf{\etitle}}
+\end{spacing}
+	\vfill
+
+	\newlength{\capwidth}
+	\setlength{\capwidth}{\widthof{\zihao{3}学生姓名：}}
+	\begin{spacing}{2}
+	
+		\begin{tabular}{lc}
+			\rule{\capwidth}{0pt} & \rule{5cm}{0pt} \\
+			\makebox[\capwidth][s]{\zihao{3}学院：} & \cschool \\ \cline{2-2}
+			\makebox[\capwidth][s]{\zihao{3}专业：} & \cmajor \\ \cline{2-2}
+			\makebox[\capwidth][s]{\zihao{3}学生姓名：} & \cauthor \\ \cline{2-2}
+			\makebox[\capwidth][s]{\zihao{3}学号：} & \cid \\ \cline{2-2}
+			\makebox[\capwidth][s]{\zihao{3}指导教师：} & \ctutor \\ \cline{2-2}
+			
+		\end{tabular}
+	\end{spacing}
+	\vfill
+	
+	\zihao{-3}\mysongti \textbf{北京交通大学}\vspace{1ex}
+
+	\yearmonth
 	\end{center}
+	
 	\newpage
 }
 \newcommand{\ccopyright}{
 	\thispagestyle{myclear}
 	\vspace{2cm}
 	\begin{center}
-	{\zihao{3}\heiti 学位论文版权使用授权书}
+	{\zihao{-2}\heiti 学士论文版权使用授权书\bigskip}
 	\end{center}
 
-	本学位论文作者完全了解北京交通大学有关保留、使用学位论文的规定。特授权北京交通大学可以将学位论文的全部或部分内容编入有关数据库进行检索，提供阅览服务，并采用影印、缩印或扫描等复制手段保存、汇编以供查阅和借阅。同意学校向国家有关部门或机构送交论文的复印件和磁盘。学校可以为存在馆际合作关系的兄弟高校用户提供文献传递服务和交换服务。
-
+	本学士论文作者完全了解北京交通大学有关保留、使用学士论文的规定。特授权北京交通大学可以将学士论文的全部或部分内容编入有关数据库进行检索，提供阅览服务，并采用影印、缩印或扫描等复制手段保存、汇编以供查阅和借阅。\\
+	\begin{center}
 	（保密的学位论文在解密后适用本授权说明）
+	\end{center}
 	\vspace{3cm}
 
 	\begin{minipage}[t]{0.5\textwidth}
@@ -171,7 +236,7 @@
 	\end{minipage} 
 	\hfill
 	\begin{minipage}[t]{0.4\textwidth}
-	导师签名：\vspace{4ex}
+	指导教师签名：\vspace{4ex}
 
 	签字日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日
 	\end{minipage} 	
@@ -240,8 +305,8 @@
 }
 \newcommand{\cabspage}{
 	\thispagestyle{myfancy}
-	\markboth{摘要}{}
-	\addcontentsline{toc}{part}{摘要}
+	\markboth{中文摘要}{}
+	\addcontentsline{toc}{part}{中文摘要}
 	\begin{thecenter}
 	摘要
 	\end{thecenter}
@@ -251,7 +316,7 @@
 }
 \newcommand{\eabspage}{
 	\thispagestyle{myfancy}
-	\markboth{ABSTRACT}{}
+	\markboth{英文摘要}{}
 	\addcontentsline{toc}{part}{ABSTRACT}
 	\begin{thecenter}
 	ABSTRACT
