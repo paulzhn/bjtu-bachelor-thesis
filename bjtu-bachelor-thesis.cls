@@ -24,7 +24,6 @@
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{tabularx}
-% \RequirePackage[numbers,sort&compress]{natbib}
 \RequirePackage{subcaption}
 \RequirePackage{pgfplots}
 \RequirePackage{tikz}
@@ -33,17 +32,14 @@
 \RequirePackage{titletoc}
 \RequirePackage{fontspec}
 \RequirePackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
-% \RequirePackage{gbt7714}
 \RequirePackage{calc}
 \RequirePackage{datetime}
 \RequirePackage{etoolbox}
 \RequirePackage{booktabs}
 \RequirePackage{floatrow}
+\RequirePackage{appendix}
+\RequirePackage{enumitem}
 \RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
-% \RequirePackage[fontsize=11pt]{fontsize}f
-% \RequirePackage{tocbibind}
-
-% \RequirePackage{xeCJK}
 
 %========================================================================%
 % 北京交大明确给出的格式
@@ -80,8 +76,6 @@
 \floatsetup[table]{font=mysongti,capposition=top,captionskip=2pt,postcode=tableafterfloat}
 \floatsetup[figure]{font=mysongti,capposition=bottom,captionskip=4pt,postcode=figureafterfloat}
 
-% \setlength{\abovecaptionskip}{8pt}
-% \setlength{\belowcaptionskip}{8pt}
 \CTEXsetup[name={,}]{chapter}
 \CTEXsetup[number={\arabic{chapter}}]{chapter}
 \CTEXsetup[beforeskip={-4pt}]{chapter}
@@ -95,6 +89,9 @@
 \CTEXsetup[format=\raggedright\heiti\zihao{4}]{subsection}
 \CTEXsetup[beforeskip={24pt}]{subsection}
 \CTEXsetup[afterskip={18pt}]{subsection}
+
+\setlength{\itemsep}{100pt}
+
 %========================================================================%
 \newcommand{\figcaption}[1]{\caption{图}{#1}}
 %========================================================================%
@@ -214,14 +211,23 @@
 %========================================================================%
 % 前置部分命令
 %========================================================================%
+
+% 设置有序和无序列表行距和留白
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+% 设置全局样式
 \let\cleardoublepage=\clearpage
 \makeatletter
 \let\ps@plain\ps@fancy
 \patchcmd{\chapter}{plain}{myfancy}{}{}
 \makeatother
+
 \newenvironment{thecenter}
 	{\begin{center}\vspace{24pt}\zihao{-2}\heiti}
 	{\vspace{18pt}\end{center}}
+
+
 \newcommand{\cover}{
 	\thispagestyle{myclear}
 	\vspace*{0.6cm}
@@ -303,7 +309,7 @@
 }
 \newcommand{\thankspage}{
 	\thispagestyle{myempty}
-	\chapter*{\makebox[\linewidth]{\zihao{-2}致谢}}
+	\chapter*{\makebox[\linewidth]{\zihao{-2}致\hspace{2em}谢}}
 	\markboth{致谢}{}
 	\addcontentsline{toc}{part}{致\hspace{2em}谢}
 
