@@ -9,7 +9,7 @@
 % copyright notice and this paragraph MUST appear in all copies and      %
 % modifications of the software and/or documentation.                    %
 %========================================================================%
-\ProvidesClass{bjtuthesis}[2016/09/10]
+\ProvidesClass{bjtu-bachelor-thesis}[2022/04/02]
 \def\version{1.0}
 \LoadClass[a4paper,zihao=-4,twoside,hyperref,openright]{ctexbook}
 \NeedsTeXFormat{LaTeX2e}
@@ -175,18 +175,17 @@
 \newcommand{\cmajor}[1]{\renewcommand{\cmajor}{\songti\zihao{3}#1}}
 \newcommand{\cid}[1]{\renewcommand{\cid}{\zihao{3}#1}}
 \newcommand{\ctutor}[1]{\renewcommand{\ctutor}{\songti\zihao{3}#1}}
-\newcommand{\jobtitle}[1]{\renewcommand{\jobtitle}{#1}}
-\newcommand{\category}[1]{\renewcommand{\category}{#1}}
-\newcommand{\degree}[1]{\renewcommand{\degree}{#1}}
-\newcommand{\major}[1]{\renewcommand{\major}{#1}}
-\newcommand{\field}[1]{\renewcommand{\field}{#1}}
 \newcommand{\cthanks}[1]{\renewcommand{\cthanks}{#1}}
 
 \newcommand{\cabstract}[1]{\renewcommand{\cabstract}{#1}}
 \newcommand{\ckeywords}[1]{\renewcommand{\ckeywords}{#1}}
 \newcommand{\eabstract}[1]{\renewcommand{\eabstract}{#1}}
 \newcommand{\ekeywords}[1]{\renewcommand{\ekeywords}{#1}}
-\newcommand{\cprelude}[1]{\renewcommand{\cprelude}{#1}}
+
+\newcommand{\authorsign}[1]{\renewcommand{\authorsign}{#1}}
+\newcommand{\tutorsign}[1]{\renewcommand{\tutorsign}{#1}}
+\newcommand{\authorsigndate}[1]{\renewcommand{\authorsigndate}{#1}}
+\newcommand{\tutorsigndate}[1]{\renewcommand{\tutorsigndate}{#1}}
 %========================================================================%
 % 参考文献格式
 %========================================================================%
@@ -230,20 +229,21 @@
 	\includegraphics[width=107mm]{pic/logo.png}
 
 	{\vspace{1.25cm}\zihao{2}\mysongti \textbf{本科毕业设计（论文）}}
-	\vfill
+	\vspace{1cm}
+	\vspace*{\fill}
 
 	\begin{spacing}{2}
-	{\zihao{-2}\myheiti\textbf{\ctitle}\vspace{1cm}}
+	{\zihao{-2}\myheiti\textbf{\ctitle}}
 	\end{spacing}
+	\vspace{1em}
 	\begin{spacing}{2}
 	{\zihao{-2}\mysongti\textbf{\etitle}}
 \end{spacing}
-	\vfill
+	\vspace*{\fill}
 
 	\newlength{\capwidth}
 	\setlength{\capwidth}{\widthof{\zihao{3}学生姓名：}}
 	\begin{spacing}{2}
-	
 		\begin{tabular}{lc}
 			\rule{\capwidth}{0pt} & \rule{5cm}{0pt} \\
 			\makebox[\capwidth][s]{\zihao{3}学院：} & \cschool \\ \cline{2-2}
@@ -254,9 +254,9 @@
 			
 		\end{tabular}
 	\end{spacing}
-	\vfill
+	\vspace*{1cm}
 	
-	\zihao{-3}\mysongti \textbf{北京交通大学}\vspace{1ex}
+	\zihao{-3}\mysongti \textbf{北京交通大学}\vspace*{0.5ex}
 
 	\yearmonth
 	\end{center}
@@ -278,60 +278,19 @@
 	\vspace{3cm}
 
 	\begin{minipage}[t]{0.5\textwidth}
-	学位论文作者签名：\vspace{4ex}
+	学位论文作者签名：\authorsign
 
-	签字日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日
+	签字日期：\authorsigndate
 	\end{minipage} 
 	\hfill
 	\begin{minipage}[t]{0.4\textwidth}
-	指导教师签名：\vspace{4ex}
+	指导教师签名：\tutorsign
 
-	签字日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日
+	签字日期：\tutorsigndate
 	\end{minipage} 	
 	\newpage
 }
-\newcommand{\ctitlepage}{
-	\thispagestyle{myempty}
-	{\noindent\zihao{5}学校代码：10004\hfill 密级：秘密}
-	\vspace{4ex}
-	\begin{center}
-	{\zihao{0}\ziju{0.1}\kaishu 北京交通大学\vspace{0.5ex}}
 
-	{\zihao{2}\ziju{0.5}\songti 硕士学位论文\vspace{4ex}}	
-
-	{\zihao{-3}\ctitle\vspace{2ex}}
-
-	{\zihao{-3}\etitle\vspace{6ex}}
-	\end{center}
-	\begin{minipage}[t]{0.5\textwidth}
-	\zihao{4}\noindent
-	作者姓名：\cauthor\vspace{2ex}
-
-	导师姓名：\ctutor\vspace{2ex}
-
-	学位类别：\category\vspace{2ex}
-
-	学科专业：\major\vspace{2ex}
-	\end{minipage} 
-	\hfill
-	\begin{minipage}[t]{0.4\textwidth}
-	\zihao{4}\noindent
-	学\hspace{2em}号：\cid\vspace{2ex}
-
-	职\hspace{2em}称：\jobtitle\vspace{2ex}
-
-	学位级别：\degree\vspace{2ex}
-
-	研究方向：\field\vspace{2ex}
-	\end{minipage} 
-	\vfill
-	\begin{center}\zihao{4}
-	北京交通大学\vspace{2ex}
-
-	\cdata
-	\end{center}
-	\newpage	
-}
 \newcommand{\myclpage}{
 	\thispagestyle{myclear}
 	\mbox{}
@@ -379,41 +338,7 @@
 
 	\newpage
 }
-\newcommand{\cprepage}{
-	\thispagestyle{myfancy}
-	\markboth{序言}{}
-	\addcontentsline{toc}{chapter}{序言}
-	\begin{thecenter}
-	序言
-	\end{thecenter}
 
-	\cprelude
-	\newpage
-}
-\newcommand{\cstatement}{
-	\thispagestyle{myfancy}
-	\markboth{独创性声明}{}
-	\addcontentsline{toc}{part}{独创性声明}
-	\begin{thecenter}
-	独创性声明
-	\end{thecenter}
-
-	\indent\zihao{5}本人声明所呈交的学位论文是本人在导师指导下进行的研究工作和取得的研究成果，除了文中特别加以标注和致谢之处外，论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得北京交通大学或其他教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示了谢意。
-
-	\vspace{2cm}学位论文作者签名：\hspace{6.5em}签字日期：\hspace{4em}年\hspace{2em}月\hspace{2em}日
-	\cleardoublepage
-}
-\newcommand{\clastpage}{
-	\thispagestyle{myfancy}
-	\markboth{学位论文数据集}{}
-	\addcontentsline{toc}{part}{学位论文数据集}
-	\begin{thecenter}
-	学位论文数据集
-	\end{thecenter}
-	\begin{center}
-	\includegraphics[width=\textwidth]{pic/tab.png}
-	\end{center}
-}
 %========================================================================%
 % 结束
 %========================================================================%

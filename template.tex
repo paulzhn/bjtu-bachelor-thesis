@@ -9,32 +9,37 @@
 % copyright notice and this paragraph MUST appear in all copies and      %
 % modifications of the software and/or documentation.                    %
 %========================================================================%
-\documentclass{bjtuthesis}
+\documentclass{bjtu-bachelor-thesis}
 %========================================================================%
 % 自定义内容
 %========================================================================%
-\ctitle{基于边云融合的边缘云服务网格系统\\控制面子系统的设计与实现}
-\etitle{The Design and Implementation of Intelligent Court Monitoring System Based on Video Recognition}
-\cauthor{张璞}
-\ctutor{刘海明}
+\ctitle{基于\LaTeX 的毕设模板的设计与实现}
+\etitle{The Design and Implementation of \\ Thesis Template Based on \LaTeX}
+\cauthor{张三}
+\ctutor{刘四}
 \cschool{软件学院}
 \cmajor{软件工程}
-\category{工学}
-\major{土木工程}
-\cid{18301120}
-\jobtitle{教授}
-\degree{硕士}
-\field{桥梁工程}
-\cdata{2017年3月}
+\cid{18300704}
+
+% 对应使用授权书下方的签名和日期，如果需要填写可改为
+% \authorsign{张三}
+% \tutorsign{刘四}
+% \authorsigndate{2022年4月2日}
+% \tutorsigndate{2022年4月2日}
+
+\authorsign{\vspace{4ex}}
+\tutorsign{\vspace{4ex}}
+\authorsigndate{\hspace{2em}年\hspace{2em}月\hspace{2em}日}
+\tutorsigndate{\hspace{2em}年\hspace{2em}月\hspace{2em}日}
+
 %========================================================================%
 % 自定义文字
 %========================================================================%
 \cthanks{放置在摘要页前，对象包括：1）国家科学基金，资助研究工作的奖学金基金，合同单位，资助或支持的企业、组织或个人。2）协助完成研究工作和提供便利条件的组织或个人。3）在研究工作中提出建议和提供帮助的人。4）给予转载和引用权的资料、图片、文献、研究思想和设想的所有者。5）其他应感谢的组织和个人。}
 \cabstract{[鼠标左键单击选择该段落，输入替换之。内容为小四号宋体。] 中文摘要应将论文的内容要点简短明了地表达出来，约400字左右，字体为宋体小四号。内容应包括工作目的、研究方法、成果和结论。要突出本论文的创新点，语言力求精炼。为了便于文献检索，应在本页下方另起一行注明论文的关键词（3-5个），如有可能，尽量采用《汉语主题词表》等词表提供的规范词。图X幅，表X个，参考文献X篇。}
 \eabstract{[鼠标左键单击选择该段落，输入替换之。内容为小四号Times New Roman。] 与中文摘要内容要相对应。``the'' quick brown fox jumps over the lazy dog}
-\cprelude{学位论文的序或前言，一般是作者或他人对本篇论文基本特征的简介，如说明研究工作缘起、背景、主旨、目的、意义、编写体例，以及资助、支持、协作经过等；也可以评述和对相关问题发表意见。这些内容也可以在正文引言中说明。}
-\ckeywords{关键词1、关键词2、关键词3}
-\ekeywords{KEYWORD1, KEYWORD2, KEYWORD3}
+\ckeywords{关键词1；关键词2；关键词3}
+\ekeywords{KEYWORD1; KEYWORD2; KEYWORD3}
 %========================================================================%
 % 前置部分
 %========================================================================%
@@ -169,25 +174,18 @@ $\phi$ —— 特征渗透性或固有渗透性，与材料的结构性质有关
 \begin{figure}[!htp]
     \centering
     \includegraphics[width=0.8\textwidth]{pic/G1.png}
-    \figcaption{G1数据对比\label{fig:G1}}{Comparison of experimental data}
+    \caption{G1数据对比\label{fig:G1}}
 \end{figure}
 
-\subsection{多张图片}
-多张图片联排或者换行可以使用各种排版方式（minipage、subplot等），如下图\ref{fig:2}所示。
 \begin{figure}
     \centering
-    \begin{minipage}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{pic/G1.png}\\
-        {\zihao{5}(a) G1试件}
-    \end{minipage}
-    \begin{minipage}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{pic/G1.png}\\
-        {\zihao{5}(b) G1试件}
-    \end{minipage}
-    \figcaption{太合金多炭钢铁产品柱扭曲局部受力分析示意图\label{fig:2}}{Comparison of experimental data}
+    \subcaptionbox{G1试件\label{fig:g1}}
+    {\includegraphics[width=0.4\textwidth]{pic/G1.png}}
+    \subcaptionbox{G1试件\label{fig:g1-2}}
+    {\includegraphics[width=0.4\textwidth]{pic/G1.png}}
+    \caption{太合金多炭钢铁产品柱扭曲局部受力分析示意图}\label{fig:2}
 \end{figure}
+
 \section{公式测试}
 公式的排版和引用与正常\LaTeX\ 公式格式一致。例如：
 
