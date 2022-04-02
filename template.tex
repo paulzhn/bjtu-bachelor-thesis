@@ -247,16 +247,42 @@ $\phi$ —— 特征渗透性或固有渗透性，与材料的结构性质有关
 \chapter*{\makebox[\linewidth]{附\hspace{2em}录}}
 
 \section*{附录A\hspace{1em}外文文献原文}
+\zihao{5}
+\noindent MIPRO 2012, May 21-25,2012, Opatija, Croatia \par
 
+\begin{center}
+    A brief introduction to OpenCV\par
+    Ivan Culjak, David Abram, Tomislav Pribanic, Hrvoje Dzapo, Mario Cifrek\par
+    Faculty of electrical engineering and computing, University of Zagreb, Zagreb, Croatia\par
+    ivan.culjak@fer.hr, david.abram@fer.hr, tomislav.pribanic@fer.hr,hrvoje.dzapo@fer.hr,mario.cifrek@fer.hr
+\end{center}
 
-
+\textbf{Abstract} - The purpose of this paper is to introduce and quickly make a reader familiar with OpenCV (Open Source Computer Vision) basics without having to go through the lengthy reference manuals and books. OpenCV is an open source library for image and video analysis, originally introduced more than decade ago by Intel. Since then, a number of programmers have contributed to the most recent library developments. The latest major change took place in 2009 (OpenCV 2) which includes main changes to the C++ interface. Nowadays the library has >2500 optimized algorithms. It is extensively used around the world, having >2.5M downloads and >40K people in the user group. Regardless of whether one is a novice C++ programmer or a professional software developer, unaware of OpenCV, the main library content should be interesting for the graduate students and researchers in image processing and computer vision areas. To master every library element it is necessary to consult many books available on the topic of OpenCV. However, reading such more comprehensive material should be easier after comprehending some basics about OpenCV from this paper. \par
+\textbf{I. INTRODUCTION} \par
+Computer Vision is the science of programming a computer to process and ultimately understand images and video, or simply saying making a computer see {[}1{]}. Solving even small parts of certain Computer Vision challenges, creates exciting new possibilities in technology, engineering and even entertainment. In order to advance vision research and disseminate vision knowledge, it is highly critical to have a library of programming functions with the optimized and portable code, and hopefully available for free. This was an original goal of Intel team back in 1999 when OpenCV (Open Source Computer Vision Library) was officially launched. Since then, a number of programmers have contributed to the most recent library developments. The latest major change took place in 2009 (OpenCV 2) which includes main changes to the C++ interface. The newest library release can be found on the OpenCV official website {[}2{]}. Nowadays the library has >2500 optimized algorithms. It is extensively used around the world, having >2.5M downloads and >40K people in the user group. OpenCV can be used in academic and commercial applications as well, under a BSD license {[}3{]}. To master every OpenCV library element it is necessary to consult many books available on the topic of OpenCV. Nevertheless, reading such more comprehensive material should be easier after comprehending a basic idea about OpenCV from this paper. In fact to make it even more convenient, the text presented here intentionally closely follows one of the most recent OpenCV sources {[}4{]}. \par
+\textbf{II. BASIC LIBRARY STRUCTURE AND FEATURES} \par
+OpenCV library (since version 2.2) is divided into several modules, where each module can be understood, in general, as being dedicated to one group of computer vision problems. All the classes and functions are defined within the name space cv. Therefore to access them we can either precede the main function definition by the declaration using namespace cv; or prefix OpenCV class and function names by namespace specification cv::. The main object is of class Mat. As implicated by the class name it is essentially a matrix holding pixel values of some image and, in addition, a number of attributes about an image. In the simplest case an image can be created as cv:: Mat image;, creating an image of size 0 by 0. Perhaps the most important member variable of image object is data where image.data member is actually a pointer to the allocated memory block that contains the image data (in this trivial case it would be image.data=0). Alternatively during a creation of Mat object we can explicitly specify an initial size and the type of each matrix element. This type specifies, for example, signed 1-byte pixel image values (CV\_8U), or three channels for a color image (CV\_8UC3), or even 32-bit/64bit floating point numbers (CV\_32F).\par
+Once an object of class mat is defined, a nice feature about it (not present in the early versions of OpenCV) is that a memory allocation/deallocation takes place automatically. For instance, a memory automatically allocated during the image read out into some object, will be also automatically released once the corresponding object goes out of scope.\par
+Another important thing is that Mat class implements the reference counting and shallow copy. Hence, when an image is assigned to another one, the image data itself is not copied and both images point to the same memory block (this also applies to images passed by/returned by value). However, since reference count is supported, a memory allocated for image (pixel) data itself will be released only when all of the references to the image are destructed.\par
+In the versions prior to OpenCV 2, C like functions and structures were used (still can be though) and the main structure was IplImage. Although there is a convenient way to convert IplImage structure into cv::Mat object, it is highly recommended to avoid this deprecated data structure.\par
 
 \section*{附录B\hspace{1em}外文文献翻译}
 
-% \begin{center}
-%     {\zihao{3}\heiti 附录标题}
-% \end{center}
+MIPRO 2012，2012年5月21日至25日，克罗地亚奥帕蒂亚
+\begin{center}
+    OpenCV简介\par
+伊万·库尔贾克（Ivan Culjak），大卫·艾布拉姆（David Abram），托米斯拉夫·普里巴尼奇（Tomislav Pribanic），赫尔沃耶·德扎波（Hrvoje Dzapo），马里奥·奇夫雷克（Mario Cifrek）\par
+克罗地亚·萨格勒布，萨格勒布大学·电气工程与计算学院\par
+ivan.culjak@fer.hr，david.abram@fer.hr，tomislav.pribanic@fer.hr，rvoje.dzapo@fer.hr，mario.cifrek@fer.hr\par
+\end{center}
 
-
+\textbf{摘要}——本文的目的是介绍并使读者快速熟悉OpenCV（开源计算机视觉库）的基础知识，而无需翻阅冗长的用户手册和书籍。OpenCV是一个开源的、用于图像和视频分析的库，最初由英特尔在十几年前提出。从那以后，大量程序员对最新的这版库做出了贡献。最新的重大变化发生在2009年（OpenCV 2版本），这一版本包含了对C ++接口的主要修改。如今这个库有超过2500个优化算法。它被广泛用于全球各地，下载量超过250万，用户组超过4万人。对于研究图像处理和计算机视觉领域的研究生和研究人员而言，不管是C ++的新手程序员还是专业软件开发人员，很少不知道OpenCV，这个领域的主要的库内容。要想掌握每一个库元素，有必要查阅许多OpenCV领域的书籍。但是，理解本文中有关OpenCV的一些基础知识后，再去读更全面的材料应该会更容易。\par
+\textbf{一、简介} \par
+计算机视觉是一门编写计算机程序来处理并最终理解图像和视频，或者简单说来，让计算机可以“看到”的科学。哪怕解决计算机视觉的很小一部分挑战，就可以在技术，工程学甚至娱乐领域创造令人兴奋的新机遇。为了推进视觉研究并传播视觉知识，建立一个优化的、可移植的，而且最好是可以免费使用的程序函数的代码库是非常必要的。时间倒流回1999年，OpenCV（开源计算机视觉库）正式发布的时候，这就是英特尔团队最初的目标。从那时起，许多程序员为最新一版的库的开发做出了贡献。最新的重大变化发生在2009年（OpenCV 2）发布的时候，它包含了对C++接口的主要更改。最新的库的发行版可以在OpenCV的官方网站上找到。如今，该库有2500多个优化算法。它在世界范围内被广泛使用，下载量超过250万，用户数量超过4万。OpenCV可用于学术领域，也可以在BSD许可下用于商业领域。要想掌握每一个库元素，有必要查阅许多OpenCV领域的书籍。但是，理解本文中有关OpenCV的一些基础知识后，再去读更全面的材料应该会更容易。实际上，为了使它更加易读，这里的用语和措辞遵循最新的OpenCV源码版本之一。\par
+\textbf{二、库的基本结构和特性} \par
+OpenCV库（自版本2.2起）分为几个模块，通常情况下，每个模块都可以理解为专用于解决一组计算机视觉的问题。所有的类和函数都已定义在命名空间cv中。因此，为了访问它们，我们可以在主函数定义之前加上using namespace cv；或在OpenCV类和函数名称前加前缀，通过命名空间cv ::声明。主要的对象是Mat类。就像类名所提示的那样，它本质上是一个矩阵，用于存放一些图像的像素值，此外，还有一些图像的基本属性。在最简单的情况下，可以将图像创建为cv :: Mat image;，这就创建了一个大小为0 x 0的图像。image对象最重要的成员变量是data， image.data成员实际上是指向分配的包含图像数据的内存块的指针（在这种简单的情况将是image.data= 0）。另外，在创建Mat对象的过程中，我们可以显式指定每个矩阵元素的初始大小和类型。例如可以指定，带符号的1字节像素图像值（CV\_8U），或彩色图像的三个通道（CV\_8UC3），甚至32位/ 64位浮点数（CV\_32F）。
+定义了mat类的对象后，它的一个很好的特性是（在早期版本的OpenCV中不存在）是自动进行内存分配/释放。例如，在图像读取期间内存自动分配到某个对象中，同时，一旦对应对象超出生命周期，也会自动释放。\par
+另一个重要的事情是Mat类实现了参考计数和浅表复制。因此，当图像内容被分配给另一个图像，图像数据本身并未复制，两个图像都指向相同的内存块（这也适用于传递/返回的图像值）。但是，由于支持引用计数，因此分配给图像（像素）数据本身的内存仅当所有对图像的引用均被销毁时才释放。
+在OpenCV 2之前的版本中，类似C的函数和结构被使用（虽然仍然可以），主要结构是IplImage。虽然有一个将IplImage结构转换为cv :: Mat对象的便捷方法，但是强烈建议避免使用不推荐的数据结构。\par
 
 \end{document}
