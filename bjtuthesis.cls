@@ -25,7 +25,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{tabularx}
 % \RequirePackage[numbers,sort&compress]{natbib}
-\RequirePackage{subfig}
+\RequirePackage{subcaption}
 \RequirePackage{pgfplots}
 \RequirePackage{tikz}
 \RequirePackage{multicol}
@@ -41,23 +41,26 @@
 \RequirePackage{floatrow}
 \RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
 % \RequirePackage[fontsize=11pt]{fontsize}f
+% \RequirePackage{tocbibind}
 
 % \RequirePackage{xeCJK}
 
 %========================================================================%
 % 北京交大明确给出的格式
 %========================================================================%
-\setCJKfamilyfont{hwzs}{STZHONGS.TTF}
+\setCJKfamilyfont{hwzs}{stzhongs.ttf}
 \newcommand{\hwzs}{\CJKfamily{hwzs}}
 \setCJKfamilyfont{mysong}{simsun.ttc}[AutoFakeBold=2.5]
 \newcommand*{\mysongti}{\CJKfamily{mysong}}
+
+\newfontfamily{\eheiti}{simhei.ttf}
 
 \setCJKfamilyfont{myhei}{simhei.ttf}[AutoFakeBold=2]
 \newcommand*{\myheiti}{\CJKfamily{myhei}}
 \newcommand*{\yearmonth}{\songti \zihao{-3} \the \year 年 \the \month 月}
 
 
-\geometry{left=2.5cm,right=2.5cm,top=3.0cm,bottom=2.5cm,headheight=1.5cm,footskip=0.6cm}
+\geometry{left=2.5cm,right=2.5cm,top=3.0cm,bottom=3.0cm,headheight=1.5cm,footskip=1.2cm}
 \setmainfont{Times New Roman}
 \linespread{1.4}\selectfont
 \setlength{\baselineskip}{20pt}
@@ -72,10 +75,13 @@
 \captionsetup{font=mysongti}
 
 \DeclareFloatFont{mysongti}{\zihao{5}\mysongti}
-\floatsetup[table]{font=mysongti,capposition=top,captionskip=2pt}
+\DeclareFloatVCode{figureafterfloat}{\vspace{-16pt}}
+\DeclareFloatVCode{tableafterfloat}{\vspace{-4pt}}
+\floatsetup[table]{font=mysongti,capposition=top,captionskip=2pt,postcode=tableafterfloat}
+\floatsetup[figure]{font=mysongti,capposition=bottom,captionskip=4pt,postcode=figureafterfloat}
 
-\setlength{\abovecaptionskip}{8pt}
-\setlength{\belowcaptionskip}{12pt}
+% \setlength{\abovecaptionskip}{8pt}
+% \setlength{\belowcaptionskip}{8pt}
 \CTEXsetup[name={,}]{chapter}
 \CTEXsetup[number={\arabic{chapter}}]{chapter}
 \CTEXsetup[beforeskip={-4pt}]{chapter}
@@ -94,11 +100,29 @@
 %========================================================================%
 % 目录格式
 %========================================================================%
-\contentsmargin{1em}
-\titlecontents{part}[0em]{\hspace{2em}}{\contentslabel{0em}}{}{\titlerule*[0.3pc]{.}\contentspage}[\vspace{0.6ex}]
-\titlecontents{chapter}[1.5em]{\hspace{2em}}{\contentslabel{1.5em}}{}{\titlerule*[0.3pc]{.}\contentspage}[\vspace{0.6ex}]
-\titlecontents{section}[3em]{\hspace{2em}}{\contentslabel{2.2em}}{}{\titlerule*[0.3pc]{.}\contentspage}[\vspace{0.6ex}]
-\titlecontents{subsection}[4.5em]{\hspace{2em}}{\contentslabel{2.9em}}{}{\titlerule*[0.3pc]{.}\contentspage}[\vspace{0.6ex}]
+\makeatletter
+\renewcommand\tableofcontents{%
+    \chapter*{\makebox[\linewidth]{\zihao{-2} 目\hspace{2em}录}
+        \@mkboth{\MakeUppercase \contentsname}{}}% ADDED
+	\vspace{-0.5cm}
+    \@starttoc{toc}%
+    } 
+\makeatother
+
+
+
+\makeatletter
+\renewcommand\contentspage[1][\MakeUppercase{\eheiti \thecontentspage}]{%
+  \hb@xt@\@pnumwidth{\hfil#1}%
+  \hspace*{-\@pnumwidth}}
+\makeatother
+
+
+\titlecontents{part}[0em]{\vspace{0.2ex}}{\eheiti \zihao{-4}\contentslabel{0em}}{\eheiti \myheiti\zihao{-4}}{\titlerule*[0.5pc]{.}\contentspage}[\vspace{0.2ex}]
+% \contentsmargin{1em}
+\titlecontents{chapter}[1.5em]{\vspace{0.3ex}}{\myheiti \eheiti \zihao{-4}\contentslabel{1.5em}}{\myheiti \eheiti \zihao{-4}}{\titlerule*[0.5pc]{.}\contentspage}[\vspace{0.15ex}]
+\titlecontents{section}[3em]{\hspace{0em}}{\contentslabel{2.2em}}{\songti \zihao{-4}}{\titlerule*[0.5pc]{.}\contentspage}[\vspace{0ex}]
+\titlecontents{subsection}[4.5em]{\hspace{0em}}{\contentslabel{2.9em}}{\songti \zihao{-4}}{\titlerule*[0.5pc]{.}\contentspage}[\vspace{0ex}]
 %========================================================================%
 % 页眉设置
 %========================================================================%
@@ -118,7 +142,7 @@
 	\fancyhead[CE,CO]{}
 	\fancyhead[L]{\zihao{4}\hwzs 北京交通大学毕业设计（论文）}
 	\fancyhead[R]{\zihao{4}\hwzs \leftmark}
-	\fancyfoot[CO,CE]{\zihao{-5}\thepage}
+	\fancyfoot[CO,CE]{\zihao{5}\thepage}
 
 	% Redefining headrule
 	\makeatletter
@@ -183,7 +207,7 @@
 %========================================================================%
 \addbibresource[]{MyDissBib.bib}
 
-\defbibheading{myheading}[参考文献]{%
+\defbibheading{myheading}[\zihao{-2}参考文献]{%
   \centering\chapter*{#1}
   \markboth{参考文献}{}}
 \defbibenvironment{bibliography}
@@ -271,6 +295,26 @@
 % }
 % \setlength{\bibsep}{0pt plus 0.3ex}
 % \renewcommand*{\bibfont}{\zihao{5}}
+% \newcommand{\toc}{
+% 	\begingroup
+% 		\let\cleardoublepage\relax
+% 		\let\clearpage\relax
+% 		\thispagestyle{myfancy}
+% 		\vspace{2cm}
+% 	\begin{center}
+		
+% 	% {\zihao{-2}\heiti 目录}
+% 	\end{center}
+% 	\fancyhf{}
+% 	\addcontentsline{toc}{chapter}{目录}
+% 	% \renewcommand\contentsname{{目录}}
+% 	\markboth{1}{}
+% 	\tableofcontents{}
+% 	% \markboth{目录}{}
+% 	\endgroup
+	
+% }
+
 
 
 \newcommand{\ccopyright}{
@@ -353,9 +397,11 @@
 }
 \newcommand{\thankspage}{
 	\thispagestyle{myempty}
-	\begin{thecenter}
-	致谢
-	\end{thecenter}
+	\chapter*{\makebox[\linewidth]{\zihao{-2}致谢}}
+	\markboth{致谢}{}
+	% \addtocontents{toc}{\begingroup\protect\setlength{\protect\cftsecindent}{-\leftmargin}}
+	\addcontentsline{toc}{part}{致\hspace{2em}谢}
+	
 
 	\cthanks
 	\newpage
@@ -364,7 +410,7 @@
 	\thispagestyle{myfancy}
 	\chapter*{\makebox[\linewidth]{\zihao{-2}中文摘要}}
 	\markboth{中文摘要}{}
-	\addcontentsline{toc}{chapter}{中文摘要}
+	\addcontentsline{toc}{part}{中文摘要}
 	% \begin{thecenter}
 	% 中文摘要
 	% \end{thecenter}
@@ -381,7 +427,7 @@
 	\chapter*{\makebox[\linewidth]{\zihao{-2}ABSTRACT}}
 	% \thispagestyle{myfancy}
 	\markboth{英文摘要}{}
-	\addcontentsline{toc}{chapter}{ABSTRACT}
+	\addcontentsline{toc}{part}{ABSTRACT}
 	% \begin{thecenter}
 	% ABSTRACT
 	% \end{thecenter}
