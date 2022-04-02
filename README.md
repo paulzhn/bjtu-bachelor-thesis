@@ -5,5 +5,12 @@
 本模板是基于 https://github.com/billhu0228/BJTUThesisTemplete 的模板修改而来，感谢billhu0228。
 
 注：
-1. 请使用XeLaTeX编译
+1. 请使用XeLaTeX编译，反馈QQ群：1021063106
 2. 附带的几个字体文件，是因为LaTeX中易系列的字体其实是跟word里的有一些差别，通篇看上去其实区别还是挺大的
+3. 本模板尚未经过验证，可能会有bug，如果你遇到了，请及时反馈，我会尽快修复。
+4. overleaf模板地址：[点这里](https://www.overleaf.com/read/cjkrjfvczbvc)，这是一个个人模板，你可以登录overleaf之后，创建一份copy，就可以使用了。因为这个模板可能还会有修改，因此暂且不会上传到gallery，等到没有问题之后再上传。
+5. 基于第3条，overleaf上的模板可能会有变动，而我修改overleaf上的模板，是无法把改动同步到基于模板派生出来的文档的。因此，需要你手动把新的.cls或者.tex文件更新一下。
+
+## 更新记录
+
+2022-04-02 项目创建
