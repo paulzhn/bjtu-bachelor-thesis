@@ -128,17 +128,7 @@
 %========================================================================%
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \fancypagestyle{myfancy}{
-	% Header Settings
-	% \fancyhead[LE,RO]{\thepage}
-	% \fancyhead[RE]{\nouppercase{\leftmark}}
-	% \fancyhead[LO]{\nouppercase{\rightmark}}
 	
-
-	% Footer Settings
-	% \fancyfoot[CE,CO]{\thepage}
-	% \fancyfoot[LE,RO]{}
-	% \fancyfoot[RE,LO]{}
-	% \fancyhead{}
 	\fancyhead[CE,CO]{}
 	\fancyhead[L]{\zihao{4}\hwzs 北京交通大学毕业设计（论文）}
 	\fancyhead[R]{\zihao{4}\hwzs \leftmark}
@@ -154,12 +144,7 @@
 }
 
 
-% \fancypagestyle{myfancy}{
-% \fancyhead{}
-% \fancyhead[CL]{\zihao{5}北京交通大学毕业设计（论文）}
-% \fancyhead[CR]{\zihao{5}\leftmark}
-% \fancyfoot[CO,CE]{\zihao{-5}\thepage}
-% }
+
 \fancypagestyle{myempty}{
 \fancyhead{}
 \renewcommand{\headrulewidth}{0pt}
@@ -227,18 +212,12 @@
    \addspace}
 
 
-
-% \bibliographystyle{gbt7714-numerical}
-% \let\oldcitep\citep
-% \newcommand{\citen}[2][]{\textsuperscript{\oldcitep{#2}#1}}
-% \renewcommand{\citep}{\citen}
 %========================================================================%
 % 前置部分命令
 %========================================================================%
 \let\cleardoublepage=\clearpage
 \makeatletter
 \let\ps@plain\ps@fancy
-% \usepackage{etoolbox}
 \patchcmd{\chapter}{plain}{myfancy}{}{}
 \makeatother
 \newenvironment{thecenter}
@@ -284,38 +263,6 @@
 	
 	\newpage
 }
-
-% \renewcommand{\bibsection}{
-% 	\newpage
-% 	\thispagestyle{myfancy}
-% 	\vspace*{0cm}
-% 	\begin{center}
-% 		{\zihao{-2}\heiti 参考文献\bigskip}
-% 	\end{center}
-% }
-% \setlength{\bibsep}{0pt plus 0.3ex}
-% \renewcommand*{\bibfont}{\zihao{5}}
-% \newcommand{\toc}{
-% 	\begingroup
-% 		\let\cleardoublepage\relax
-% 		\let\clearpage\relax
-% 		\thispagestyle{myfancy}
-% 		\vspace{2cm}
-% 	\begin{center}
-		
-% 	% {\zihao{-2}\heiti 目录}
-% 	\end{center}
-% 	\fancyhf{}
-% 	\addcontentsline{toc}{chapter}{目录}
-% 	% \renewcommand\contentsname{{目录}}
-% 	\markboth{1}{}
-% 	\tableofcontents{}
-% 	% \markboth{目录}{}
-% 	\endgroup
-	
-% }
-
-
 
 \newcommand{\ccopyright}{
 	\thispagestyle{myclear}
@@ -399,9 +346,7 @@
 	\thispagestyle{myempty}
 	\chapter*{\makebox[\linewidth]{\zihao{-2}致谢}}
 	\markboth{致谢}{}
-	% \addtocontents{toc}{\begingroup\protect\setlength{\protect\cftsecindent}{-\leftmargin}}
 	\addcontentsline{toc}{part}{致\hspace{2em}谢}
-	
 
 	\cthanks
 	\newpage
@@ -411,9 +356,6 @@
 	\chapter*{\makebox[\linewidth]{\zihao{-2}中文摘要}}
 	\markboth{中文摘要}{}
 	\addcontentsline{toc}{part}{中文摘要}
-	% \begin{thecenter}
-	% 中文摘要
-	% \end{thecenter}
 
 	\noindent\mysongti{\textbf{摘要：}}\cabstract \par
 
@@ -425,12 +367,8 @@
 \newcommand{\eabspage}{
 	\thispagestyle{myfancy}
 	\chapter*{\makebox[\linewidth]{\zihao{-2}ABSTRACT}}
-	% \thispagestyle{myfancy}
 	\markboth{英文摘要}{}
 	\addcontentsline{toc}{part}{ABSTRACT}
-	% \begin{thecenter}
-	% ABSTRACT
-	% \end{thecenter}
 
 	\noindent\mysongti{\textbf{ABSTRACT:}} \par
 	\noindent\eabstract \par
