@@ -127,8 +127,8 @@
 \fancypagestyle{myfancy}{
 	
 	\fancyhead[CE,CO]{}
-	\fancyhead[L]{\zihao{4}\hwzs 北京交通大学毕业设计（论文）}
-	\fancyhead[R]{\zihao{4}\hwzs \leftmark}
+	\fancyhead[L]{\zihao{4}\hwzs \hspace*{0.5em}北京交通大学毕业设计（论文）}
+	\fancyhead[R]{\zihao{4}\hwzs \leftmark\hspace*{0.5em}}
 	\fancyfoot[CO,CE]{\zihao{5}\thepage}
 
 	% Redefining headrule
@@ -155,8 +155,8 @@
 }
 \fancypagestyle{plain}{
 \fancyhead{}
-\fancyhead[CE]{\zihao{5}北京交通大学硕士学位论文}
-\fancyhead[CO]{\zihao{5}\leftmark}
+\fancyhead[CE]{\zihao{5}\hspace{2em}北京交通大学硕士学位论文}
+\fancyhead[CO]{\zihao{5}\hspace{2em}\leftmark}
 \fancyfoot[CO,CE]{\zihao{-5}\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 }
