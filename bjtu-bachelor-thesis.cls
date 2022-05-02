@@ -76,19 +76,27 @@
 \floatsetup[table]{font=mysongti,capposition=top,captionskip=2pt,postcode=tableafterfloat}
 \floatsetup[figure]{font=mysongti,capposition=bottom,captionskip=4pt,postcode=figureafterfloat}
 
-\CTEXsetup[name={,}]{chapter}
-\CTEXsetup[number={\arabic{chapter}}]{chapter}
-\CTEXsetup[beforeskip={-4pt}]{chapter}
-\CTEXsetup[afterskip={18pt}]{chapter}
-\CTEXsetup[nameformat={}]{chapter}
-\CTEXsetup[titleformat={}]{chapter}
-\CTEXsetup[format=\heiti\zihao{3}]{chapter}
-\CTEXsetup[format=\raggedright\heiti\zihao{-3}]{section}
-\CTEXsetup[beforeskip={24pt}]{section}
-\CTEXsetup[afterskip={18pt}]{section}
-\CTEXsetup[format=\raggedright\heiti\zihao{4}]{subsection}
-\CTEXsetup[beforeskip={24pt}]{subsection}
-\CTEXsetup[afterskip={18pt}]{subsection}
+\ctexset{
+    chapter = {
+        name={,},
+        number={\arabic {chapter}},
+        beforeskip={-4pt},
+        afterskip={18pt},
+        nameformat={},
+        titleformat={},
+        format=\heiti\zihao{3},
+    },
+    section = {
+        format=\raggedright\heiti\zihao{-3},
+        beforeskip={24pt},
+        afterskip={18pt},
+    },
+    subsection = {
+        format=\raggedright\heiti\zihao{4},
+        beforeskip={24pt},
+        afterskip={18pt},
+    },
+}
 
 \setlength{\itemsep}{100pt}
 
