@@ -135,8 +135,8 @@
 \fancypagestyle{myfancy}{
 	
 	\fancyhead[CE,CO]{}
-	\fancyhead[L]{\zihao{4}\hwzs \hspace*{0.5em}北京交通大学毕业设计（论文）}
-	\fancyhead[R]{\zihao{4}\hwzs \leftmark\hspace*{0.5em}}
+	\fancyhead[L]{\zihao{4}\hwzs \hspace{1em}北京交通大学毕业设计（论文）}
+	\fancyhead[R]{\zihao{4}\hwzs \leftmark\hspace{1em}}
 	\fancyfoot[CO,CE]{\zihao{5}\thepage}
 
 	% Redefining headrule
@@ -145,7 +145,7 @@
 }
 
 \fancypagestyle{myfancymain}{
-	\fancyhead[R]{\zihao{4}\hwzs 正文}
+	\fancyhead[R]{\zihao{4}\hwzs 正文\hspace{1em}}
 }
 
 
@@ -240,39 +240,35 @@
 	\thispagestyle{myclear}
 	\vspace*{0.6cm}
 	\begin{center}
-	\includegraphics[width=107mm]{pic/logo.png}
-
-	{\vspace{1.25cm}\zihao{2}\mysongti \textbf{本科毕业设计（论文）}}
-	\vspace{1cm}
-	\vspace*{\fill}
-
-	\begin{spacing}{2}
-	{\zihao{-2}\myheiti\textbf{\ctitle}}
-	\end{spacing}
-	\vspace{1em}
-	\begin{spacing}{2}
-	{\zihao{-2}\mysongti\textbf{\etitle}}
-\end{spacing}
-	\vspace*{\fill}
-
-	\newlength{\capwidth}
-	\setlength{\capwidth}{\widthof{\zihao{3}学生姓名：}}
-	\begin{spacing}{2}
-		\begin{tabular}{lc}
-			\rule{\capwidth}{0pt} & \rule{5cm}{0pt} \\
-			\makebox[\capwidth][s]{\zihao{3}学院：} & \cschool \\ \cline{2-2}
-			\makebox[\capwidth][s]{\zihao{3}专业：} & \cmajor \\ \cline{2-2}
-			\makebox[\capwidth][s]{\zihao{3}学生姓名：} & \cauthor \\ \cline{2-2}
-			\makebox[\capwidth][s]{\zihao{3}学号：} & \cid \\ \cline{2-2}
-			\makebox[\capwidth][s]{\zihao{3}指导教师：} & \ctutor \\ \cline{2-2}
-			
-		\end{tabular}
-	\end{spacing}
-	\vspace*{1cm}
-	
-	\zihao{-3}\mysongti \textbf{北京交通大学}\vspace*{0.5ex}
-
-	\yearmonth
+		\includegraphics[width=107mm]{pic/logo.png}
+		
+		{\vspace{1.25cm}\zihao{2}\mysongti \textbf{本科毕业设计（论文）}}
+		\vspace{1cm}
+		\vspace*{\fill}
+		
+		\begin{spacing}{2}
+			{\zihao{-2}\myheiti\textbf{\ctitle}}
+		\end{spacing}
+		\vspace{1em}
+		\begin{spacing}{2}
+			{\zihao{-2}\mysongti\textbf{\etitle}}
+		\end{spacing}
+		\vspace*{\fill}
+		
+		\newlength{\capwidth}
+		\setlength{\capwidth}{\widthof{\zihao{3}学生姓名：}}
+		\begin{spacing}{2}
+			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}学院：}\underline{\makebox[4.8cm][c]{\cschool}} \\
+			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}专业：}\underline{\makebox[4.8cm][c]{\cmajor}} \\
+			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}学生姓名：}\underline{\makebox[4.8cm][c]{\cauthor}} \\
+			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}学号：}\underline{\makebox[4.8cm][c]{\cid}} \\
+			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}指导教师：}\underline{\makebox[4.8cm][c]{\ctutor}} \\
+		\end{spacing}
+		\vspace*{1cm}
+		
+		\zihao{-3}\mysongti \textbf{北京交通大学}\vspace*{0.5ex}
+		
+		\yearmonth
 	\end{center}
 	
 	\newpage
