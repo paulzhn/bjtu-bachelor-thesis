@@ -277,12 +277,12 @@
 	\vspace*{\fill}
 
 	\begin{spacing}{2}
-	{\zihao{-2}\myheiti\textbf{\ctitle}}
+		{\zihao{-2}\myheiti\textbf{\ctitle}}
+		\end{spacing}
+		\vspace{1em}
+		\begin{spacing}{2}
+		{\zihao{-2}\mysongti\textbf{\etitle}}
 	\end{spacing}
-	\vspace{1em}
-	\begin{spacing}{2}
-	{\zihao{-2}\mysongti\textbf{\etitle}}
-\end{spacing}
 	\vspace*{\fill}
 
 	\newlength{\capwidth}
