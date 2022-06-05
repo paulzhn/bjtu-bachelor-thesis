@@ -155,7 +155,7 @@
 }
 
 \fancypagestyle{myfancymain}{
-	\fancyhead[R]{\zihao{4}\hwzs 正文}
+	\fancyhead[R]{\zihao{4}\hwzs 正文\hspace*{0.5em}}
 }
 
 
