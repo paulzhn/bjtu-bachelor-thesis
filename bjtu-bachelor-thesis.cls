@@ -257,7 +257,7 @@
 		
 		\newlength{\capwidth}
 		\setlength{\capwidth}{\widthof{\zihao{3}学生姓名：}}
-		\begin{spacing}{2}
+		\begin{spacing}{2.25}
 			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}学院：}\underline{\makebox[4.8cm][c]{\cschool}} \\
 			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}专业：}\underline{\makebox[4.8cm][c]{\cmajor}} \\
 			\hspace{-2em}\makebox[\capwidth][s]{\zihao{3}学生姓名：}\underline{\makebox[4.8cm][c]{\cauthor}} \\
