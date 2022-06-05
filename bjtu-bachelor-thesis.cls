@@ -31,7 +31,7 @@
 \RequirePackage{setspace}
 \RequirePackage{titletoc}
 \RequirePackage{fontspec}
-\RequirePackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+\RequirePackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black,urlcolor=black]{hyperref}
 \RequirePackage{calc}
 \RequirePackage{datetime}
 \RequirePackage{etoolbox}
