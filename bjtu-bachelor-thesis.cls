@@ -40,7 +40,15 @@
 \RequirePackage{appendix}
 \RequirePackage{enumitem}
 \RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
-
+\RequirePackage{underscore}
+\RequirePackage{listings}
+\RequirePackage{color}
+\RequirePackage{multirow}
+\RequirePackage{float}
+\RequirePackage[linesnumbered,ruled]{algorithm2e}
+\RequirePackage{algpseudocode}
+\RequirePackage{enumitem}
+\RequirePackage{xcolor}
 %========================================================================%
 % 北京交大明确给出的格式
 %========================================================================%
