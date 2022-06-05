@@ -107,6 +107,8 @@
 }
 
 \setlength{\itemsep}{100pt}
+\captionsetup[table]{labelsep=space} % 表
+\captionsetup[figure]{labelsep=space} % 图  
 
 %========================================================================%
 \newcommand{\figcaption}[1]{\caption{图}{#1}}
