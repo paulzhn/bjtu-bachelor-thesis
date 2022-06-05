@@ -201,6 +201,26 @@
 \newcommand{\tutorsign}[1]{\renewcommand{\tutorsign}{#1}}
 \newcommand{\authorsigndate}[1]{\renewcommand{\authorsigndate}{#1}}
 \newcommand{\tutorsigndate}[1]{\renewcommand{\tutorsigndate}{#1}}
+% 插入代码样式
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=none,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breakatwhitespace=true,
+  tabsize=3
+}
 %========================================================================%
 % 参考文献格式
 %========================================================================%
